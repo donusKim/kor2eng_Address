@@ -1,0 +1,56 @@
+{% extends 'kor2eng/base.html' %}
+
+{% block content %}
+
+<script>
+    function copyToClipboard(id) {
+  var input = document.getElementById(id);
+  try {
+    input.select();
+    // returnValue: A Boolean that is false if the command is not supported or enabled.
+    var returnValue = document.execCommand('copy');
+    console.debug(returnValue);
+    if (!returnValue) {
+      throw new Error('copied nothing');
+    }
+    alert('복사 되었습니다.');
+  } catch (e) {
+    prompt('Copy to clipboard: Ctrl+C, Enter', input.value);
+  }
+}
+</script>
+<form>
+    <div class="form-group col-md-8">
+    <label for="inputAddress">한글주소</label>
+    <input type="text" readonly class="form-control-plaintext" id="inputAddress" value="{{ addr.kor }}">
+  </div>
+    <div class="form-group col-md-8" >
+    <label for="inputCountry">Country</label>
+    <input type="text" readonly class="form-control-plaintext" id="inputCountry" value="Republic of Korea">
+  </div>
+  <div class="form-group col-md-8" >
+    <label for="inputEngAddress">Address 1</label>
+    <input type="text" readonly class="form-control-plaintext" id="inputEngAddress" value="{{ addr.eng }}">
+        <button type="button" onclick="copyToClipboard('inputEngAddress')">Copy</button>
+  </div>
+  <div class="form-group col-md-8">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+
+    <div class="form-group col-md-8">
+      <label for="inputCity">City</label>
+      <input type="text" readonly class="form-control-plaintext" id="inputCity" value="{{ addr.city }}">
+        <button type="button" onclick="copyToClipboard('inputCity')">Copy</button>
+    </div>
+    <div class="form-group col-md-8">
+      <label for="inputState">State / Province / Region</label>
+      <input type="text" readonly class="form-control-plaintext" id="inputState" value="{{ addr.state }}">
+    </div>
+    <div class="form-group col-md-4">
+      <label for="inputZip">Zip</label>
+      <input type="text" readonly class="form-control-plaintext" id="inputZip"  value="{{ addr.zip }}">
+    </div>
+</form>
+
+{% endblock %}

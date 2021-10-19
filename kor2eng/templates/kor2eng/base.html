@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="C:\Users\zzang\PycharmProjects\kor2eng_Address\kor2eng\static\css\cover.css">
+</head>
+
+<body class="d-flex h-100 text-dark bg-light">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+  <header class="masthead">
+    <div class="inner">
+      <h3 class="masthead-brand" href="{% url 'home' %}">Donus</h3>
+      <nav class="nav nav-masthead ">
+        <a class="nav-link active" aria-current="Home" href="{% url 'home' %}">Home</a>
+        <a class="nav-link" href="#">도로명 주소</a>
+        <a class="nav-link" href="#">상세 주소</a>
+      </nav>
+    </div>
+  </header>
+<main class="masthead mb-auto">
+        {% block content %}
+        {% endblock content %}
+</main>
+    <footer class="mt-auto text-center text-dark-50">
+    <p>Cover template for <a href="https://getbootstrap.com/" class="text-dark">Bootstrap</a>, by <a href="https://twitter.com/mdo" class="text-dark">@mdo</a>.</p>
+  </footer>
+</div>
+</body>
+

@@ -1,0 +1,10 @@
+{% extends 'kor2eng/base.html' %}
+
+{% block content %}
+  <div style="text-align: center;">
+  <h1>{{home_name}}</h1>
+  <form action="{% url 'search_results' %}" method="get">
+    <input name="q" type="text" size="100" placeholder="주소를 입력하세요..">
+  </form>
+  </div>
+{% endblock %}
